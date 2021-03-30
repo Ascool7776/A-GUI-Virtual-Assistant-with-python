@@ -50,14 +50,14 @@ def get_audio():
     with sr.Microphone() as source: 
 
         print("Listening") 
-        playsound("bike.wav")
+        playsound("assistant_on.wav")
         audio = r.listen(source, phrase_time_limit = 3) 
-        playsound("close.wav")
+        playsound("assistant_off.wav")
         print("Stop.") 
         
     try: 
         text = r.recognize_google(audio, language ='en-US') 
-        print('You: ' +text)
+        print('You: ' + ': ' + text)
         return text
 
 
@@ -295,7 +295,7 @@ def wikipedia_screen(text):
 
   wikipedia_screen = Toplevel(screen)
   wikipedia_screen.title(text)
-  wikipedia_screen.iconbitmap('Trial.ico')
+  wikipedia_screen.iconbitmap('app_icon.ico')
 
   message = Message(wikipedia_screen, text= text)
   message.pack()
